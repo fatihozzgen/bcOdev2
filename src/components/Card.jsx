@@ -11,16 +11,25 @@ function Card({query,setQuery}) {
         fetch('https://swapi.dev/api/people')
         .then(response => response.json())
         .then(json => setData(json.results))
-        // setIsLoading(false);
-        // setFilteredData(res.data);
+       
       }
-     
-      // console.log(data.filter(item => item.name.toLowerCase().includes(query)))
-
-
+  
       useEffect(()=>{
         getData()
       },[])
+
+      function removeUser(e) {
+        let target = e.target;
+        console.log(target.parentNode.parentNode.removeChild(target.parentNode)) 
+      }
+      
+      var removeBtn = document.querySelectorAll('.remove');
+      
+      for (let i = 0; i < removeBtn.length; i++) {
+        removeBtn[i].addEventListener("click", removeUser, false);
+      }
+      
+      
 
 
   return (  
@@ -45,10 +54,11 @@ function Card({query,setQuery}) {
       
            
         ))}</div>
+        
 </div>
-
+<button className='remove' onClick={removeUser}>X</button>
   <div className='button'>
-  <button className='buttonx'>X</button>
+  
   </div>
        
         

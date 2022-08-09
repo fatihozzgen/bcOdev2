@@ -159,15 +159,9 @@ border: none;
   justify-content: center;
 }
 
-.button {
-  
+.remove {
   width: 3%;
-  right: auto;
-}
-
-.button > button {
-  width: 100%;
-  height: 96%;
+  height: 65px;
   border-radius: 5px;
   border: none;
   background-color:#57606f;
@@ -175,4 +169,3 @@ border: none;
   margin-left: 5px;
   cursor: pointer;
 }
-

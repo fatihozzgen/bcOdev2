@@ -1,7 +1,9 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 
-function Card() {
+function Card({query,setQuery}) {
+
+ 
 
     const [data, setData] = useState([]);
 
@@ -13,17 +15,20 @@ function Card() {
         // setFilteredData(res.data);
       }
      
+      // console.log(data.filter(item => item.name.toLowerCase().includes(query)))
 
 
       useEffect(()=>{
         getData()
       },[])
-    
 
-  return (
+
+  return (  
     <div>
+ 
+
         
-        {data.map((item,i) => (
+        {data.filter(item => item.name.toLowerCase().includes(query)).map((item,i) => (
         
         <div className='cards' key={i}>
 <div className='card'> 
@@ -43,7 +48,7 @@ function Card() {
 </div>
 
   <div className='button'>
-  <button >X</button>
+  <button className='buttonx'>X</button>
   </div>
        
         
@@ -53,6 +58,7 @@ function Card() {
 
       </div>
   )
+  
 }
 
 export default Card

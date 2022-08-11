@@ -169,3 +169,141 @@ border: none;
   margin-left: 5px;
   cursor: pointer;
 }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15%;
+}
+
+.line-wobble {
+ --uib-size: 80px;
+ --uib-speed: 1.55s;
+ --uib-color: #57606f;
+ --uib-line-weight: 5px;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: var(--uib-line-weight);
+ width: var(--uib-size);
+ border-radius: calc(var(--uib-line-weight) / 2);
+ overflow: hidden;
+ transform: translate3d(0, 0, 0);
+}
+
+.line-wobble::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--uib-color);
+ opacity: 0.1;
+}
+
+.line-wobble::after {
+ content: '';
+ height: 100%;
+ width: 100%;
+ border-radius: calc(var(--uib-line-weight) / 2);
+ animation: wobble var(--uib-speed) ease-in-out infinite;
+ transform: translateX(-90%);
+ background-color: var(--uib-color);
+}
+
+@keyframes wobble {
+ 0%,
+  100% {
+  transform: translateX(-90%);
+ }
+
+ 50% {
+  transform: translateX(90%);
+ }
+}
+
+.logCont {
+  display: flex;
+  width: 100%; 
+  height: 100vh;
+  background-color:#57606f;
+  justify-content: center;
+  align-items: center;
+
+}
+ 
+.logborder {
+  width: 350px;
+  height: 400px;
+  background-color: #dfe4ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.log {
+  width: 250px;
+  height: 35px;
+  margin: 5px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  
+}
+
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+
+.logBtn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #57606f;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+ }
+ 
+ .logBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+ }
+ 
+ .logBtn span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+ }
+ 
+ .logBtn:hover span {
+  padding-right: 15px;
+ }
+ 
+ .logBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+ }
+
+
+

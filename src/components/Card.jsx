@@ -1,13 +1,15 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 
-function Card({query,setQuery,selects,setSelects}) {
 
-  const [loading,setLoading] = useState(true)
+function Card({loading,query,setQuery,selects,setSelects,setLoading}) {
+
   const [data, setData] = useState([]);
   const removeBtn = document.querySelectorAll('.remove');
 
   // DATA FETCHİNG
+  
     const getData = () => {
         fetch('https://swapi.dev/api/people')
         .then(response => response.json())
@@ -16,7 +18,10 @@ function Card({query,setQuery,selects,setSelects}) {
       }
   // GET DATA
       useEffect(()=>{
-        getData()
+        setTimeout(() => {
+          getData()
+
+        }, 1500);
       },[])
    
   // REMOVE USER
@@ -27,7 +32,7 @@ function Card({query,setQuery,selects,setSelects}) {
         removeBtn[i].addEventListener("click", removeUser, false);
       }
       
-
+      console.log(loading)
 
   // SELECT FİLTER
       if(selects !== undefined)
@@ -59,10 +64,10 @@ function Card({query,setQuery,selects,setSelects}) {
   return (  
     
     <div>
- 
       
-        
-        {data.filter(item => item.name.toLowerCase().includes(query)).map((item,i) => (
+      {loading ?  <div className='loading'> <div className='line-wobble'> </div> </div> : 
+       
+       data.filter(item => item.name.toLowerCase().includes(query)).map((item,i) => (
         
         <div className='cards' key={i}>
         <div className='card'> 
@@ -78,8 +83,11 @@ function Card({query,setQuery,selects,setSelects}) {
           <button className='remove' onClick={removeUser}>X</button>
          
       </div>
-      ))}
+      ))
 
+      }
+
+       
 
       </div>
   )

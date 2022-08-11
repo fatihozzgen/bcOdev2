@@ -9,12 +9,11 @@ const Login = ({setLogin}) => {
     const [password,setPassword] = useState()
     const [error,setError] = useState(false)
 
-const loginChange =(event) => {
-    
+const loginChange =(e) => {
     if( username === "admin" && password === "admin") {
         setLogin(false)
     } else {
-        console.log('error')
+        e.preventDefault()
         setError(true)
         notify()
     }
@@ -42,7 +41,7 @@ const loginChange =(event) => {
             <input className='log' type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
         </div>
 
-        <button type='button' className='logBtn' onClick={loginChange }>
+        <button type='submit' className='logBtn' onClick={loginChange}>
              <span> Button </span>
         </button>
 

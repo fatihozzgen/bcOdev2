@@ -3,14 +3,9 @@ import {useState} from 'react'
 
 function Navbar({query,setQuery,selects,setSelects}) {
 
-
-
-
  const changeS = (e) => {
   setSelects(e)
  }
-
- console.log(selects)
 
   return (
     <div className='navbar'>
@@ -25,17 +20,15 @@ function Navbar({query,setQuery,selects,setSelects}) {
           />
                 
                  
-                 <select value={selects} className='select' onChange={(event) =>changeS(event.target.value) }>  
-                 <option>All</option>
+            <select value={selects} className='select' onChange={(event) =>changeS(event.target.value) }>  
+                <option>All</option>
                 <option >male</option>
                 <option >female</option>
                 <option >n/a</option>
             </select>
-                              
-           
+                          
       </div>
         
-
         <div className='info'> 
             <div className='name'>Name</div>
             <div className='height'>Height</div>

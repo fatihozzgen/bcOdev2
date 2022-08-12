@@ -3,10 +3,6 @@ import {useState} from 'react'
 import Card from './components/Card';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
-import { ToastContainer, toast } from 'react-toastify';
-
-
-
 
 function App() {
 
@@ -15,13 +11,10 @@ function App() {
   const [login,setLogin] = useState(true);
   const [loading,setLoading] = useState(true)
 
-  
 
   if(login) {
     return <Login setLogin={setLogin}/>
   }
-
-  
 
   return (
     <>

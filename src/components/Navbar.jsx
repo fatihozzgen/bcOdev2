@@ -1,5 +1,3 @@
-import {useState} from 'react'
-
 
 function Navbar({query,setQuery,selects,setSelects}) {
 
@@ -18,8 +16,7 @@ function Navbar({query,setQuery,selects,setSelects}) {
           className='search'
           onChange={(e) => setQuery(e.target.value)}       
           />
-                
-                 
+                       
             <select value={selects} className='select' onChange={(event) =>changeS(event.target.value) }>  
                 <option>All</option>
                 <option >male</option>

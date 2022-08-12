@@ -1,7 +1,5 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-
 
 function Card({loading,query,setQuery,selects,setSelects,setLoading}) {
 
@@ -34,7 +32,7 @@ function Card({loading,query,setQuery,selects,setSelects,setLoading}) {
       
       console.log(loading)
 
-  // SELECT FİLTER
+  
       if(selects !== undefined)
        {
         return (<>
@@ -59,7 +57,6 @@ function Card({loading,query,setQuery,selects,setSelects,setLoading}) {
     </div>            
             </>)
           }
-
  
   return (  
     
@@ -83,12 +80,7 @@ function Card({loading,query,setQuery,selects,setSelects,setLoading}) {
           <button className='remove' onClick={removeUser}>X</button>
          
       </div>
-      ))
-
-      }
-
-       
-
+      ))}
       </div>
   )
   

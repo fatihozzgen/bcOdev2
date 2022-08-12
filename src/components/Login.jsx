@@ -42,7 +42,7 @@ const loginChange =(e) => {
         </div>
 
         <button type='submit' className='logBtn' onClick={loginChange}>
-             <span> Button </span>
+             <span> Login </span>
         </button>
 
         <ToastContainer

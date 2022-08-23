@@ -21,17 +21,34 @@ function Card({ loading, selects, setSelects, setLoading, search, setSearch }) {
     setData([...data.filter((item) => item.name !== id)]);
   };
 
-  return (
-    <>
-      {loading ? (
-        <div className="loading">
-          {" "}
-          <div className="line-wobble"> </div>{" "}
-        </div>
-      ) : (
+  if (selects === "all") {
+    return (
+      <>
+        {data.map((item, i) => (
+          <div className="cards" key={i}>
+            <div className="card">
+              <div> {item.name} </div>
+              <div> {item.height}</div>
+              <div> {item.gender}</div>
+              <div className="lastch"></div>
+            </div>
+            <button className="remove" onClick={() => deleteUser(item.name)}>
+              X
+            </button>
+          </div>
+        ))}
+      </>
+    );
+  } else {
+    return (
+      <>
         <div>
           {data
-            .filter((item) => item.name.toLowerCase().includes(search))
+            .filter(
+              (item) =>
+                item.name.toLowerCase().includes(search) &&
+                item.gender === selects
+            )
             .map((user, i) => (
               <div className="cards" key={i}>
                 <div className="card">
@@ -49,11 +66,9 @@ function Card({ loading, selects, setSelects, setLoading, search, setSearch }) {
               </div>
             ))}
         </div>
-      )}
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default Card;
-{
-}

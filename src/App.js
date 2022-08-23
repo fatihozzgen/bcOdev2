@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 
 function App() {
-  const [selects, setSelects] = useState();
+  const [selects, setSelects] = useState("all");
   const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");

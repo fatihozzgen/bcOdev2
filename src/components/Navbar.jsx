@@ -1,10 +1,9 @@
-function Navbar({ query, setQuery, selects, setSelects, search, setSearch }) {
+import { useState } from "react";
+
+function Navbar({ selects, setSelects, search, setSearch }) {
   const changeS = (e) => {
     setSelects(e);
-  };
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
+    console.log(e);
   };
 
   return (
@@ -14,18 +13,14 @@ function Navbar({ query, setQuery, selects, setSelects, search, setSearch }) {
           type="text"
           placeholder="Search"
           className="search"
-          onChange={handleSearch}
+          onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select
-          value={selects}
-          className="select"
-          onChange={(event) => changeS(event.target.value)}
-        >
-          <option>All</option>
-          <option>male</option>
-          <option>female</option>
-          <option>n/a</option>
+        <select className="select" onChange={(e) => changeS(e.target.value)}>
+          <option value={"all"}>All</option>
+          <option value={"male"}> Male </option>
+          <option value={"female"}>Female</option>
+          <option value={"n/a"}>N/A</option>
         </select>
       </div>
 

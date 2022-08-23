@@ -24,19 +24,41 @@ function Card({ loading, selects, setSelects, setLoading, search, setSearch }) {
   if (selects === "all") {
     return (
       <>
-        {data.map((item, i) => (
-          <div className="cards" key={i}>
-            <div className="card">
-              <div> {item.name} </div>
-              <div> {item.height}</div>
-              <div> {item.gender}</div>
-              <div className="lastch"></div>
-            </div>
-            <button className="remove" onClick={() => deleteUser(item.name)}>
-              X
-            </button>
+        {loading ? (
+          <div className="loading">
+            <div className="line-wobble"> </div>
           </div>
-        ))}
+        ) : (
+          <>
+            {data
+              .filter((user) => user.name.toLowerCase().includes(search))
+              .map((item, i) => (
+                <div className="cards" key={i}>
+                  <div className="card">
+                    <div> {item.name} </div>
+                    <div> {item.height}</div>
+                    <div> {item.gender}</div>
+                    <div className="lastch">
+                      {" "}
+                      {item.films.map((film, i) => (
+                        <div key={i}>
+                          <a className="listfilm" href={film} target="_blank">
+                            Favorite Film {i + 1}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <button
+                    className="remove"
+                    onClick={() => deleteUser(item.name)}
+                  >
+                    X
+                  </button>
+                </div>
+              ))}
+          </>
+        )}
       </>
     );
   } else {
